@@ -1,8 +1,7 @@
 <?php 
-namespace Matematica;
+namespace classes\matematica;
 
-class Matematica {
-    
+class Basica {
     public function somar($x, $y){
         return $x + $y;
     }

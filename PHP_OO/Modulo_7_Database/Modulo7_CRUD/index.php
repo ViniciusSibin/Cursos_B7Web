@@ -11,7 +11,7 @@
 require 'config.php';
 
 ?>
-<a href="adicionar.php">ADICIONAR USUARIO</a>
+<a href="adicionar.html">ADICIONAR USUARIO</a>
 
 <table border="1" width="100%">
     <tr>

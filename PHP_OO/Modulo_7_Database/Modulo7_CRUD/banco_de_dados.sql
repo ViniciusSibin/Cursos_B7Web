@@ -4,7 +4,7 @@ CREATE TABLE usuarios (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     NOME VARCHAR(50) NOT NULL,
     EMAIL VARCHAR(50) NOT NULL UNIQUE, -- Adicionando a restrição UNIQUE
-    DATA_CRIACAO DATETIME -- Corrigindo o nome da coluna
+    DATA_CADASTRO DATETIME -- Corrigindo o nome da coluna
 );
 
 COMMIT;

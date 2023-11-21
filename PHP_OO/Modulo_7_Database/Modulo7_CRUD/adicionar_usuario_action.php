@@ -10,7 +10,7 @@ if($name && $email){
     $sql->execute();
 
     if($sql->rowCount() === 0){
-        $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, dataCadastro) VALUES (:nome, :email, NOW())");
+        $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, data_cadastro) VALUES (:nome, :email, NOW())");
         $sql->bindValue(':nome', $name);
         $sql->bindValue(':email', $email);
         $sql->execute();

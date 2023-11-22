@@ -26,7 +26,7 @@ if($sql_usuarios_query->rowCount() > 0){
             <td><?= date("d/m/Y H:i:s", strtotime($usuario['data_cadastro'])); ?></td>
             <td>
                 <a href="editar_usuario.php?id=<?= $usuario['id'] ?>">[ editar ]</a>
-                <a href="excluir_usuario.php?id=<?= $usuario['id'] ?>">[ excluir ]</a>
+                <a href="excluir_usuario_action.php?id=<?= $usuario['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o usuário: <?=$usuario['nome']?>?')">[ excluir ]</a>
             </td>
         </tr>
     <?php endforeach; ?>

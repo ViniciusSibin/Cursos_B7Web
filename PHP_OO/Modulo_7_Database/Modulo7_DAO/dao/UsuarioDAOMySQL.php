@@ -51,6 +51,7 @@ class UsuarioDAOMysQL implements UsuarioDAO {
             $usuarioBanco = $sql->fetch();
 
             $usuario = new Usuario();
+            $usuario->setId($usuarioBanco['id']);
             $usuario->setNome($usuarioBanco['nome']);
             $usuario->setEmail($usuarioBanco['email']);
             $usuario->setDataCadastro($usuarioBanco['data_cadastro']);
@@ -70,6 +71,7 @@ class UsuarioDAOMysQL implements UsuarioDAO {
             $usuarioBanco = $sql->fetch();
 
             $usuario = new Usuario();
+            $usuario->setId($usuarioBanco['id']);
             $usuario->setNome($usuarioBanco['nome']);
             $usuario->setEmail($usuarioBanco['email']);
             $usuario->setDataCadastro($usuarioBanco['data_cadastro']);
@@ -81,7 +83,13 @@ class UsuarioDAOMysQL implements UsuarioDAO {
     }
 
     public function update(Usuario $u){
+        $sql = $this->pdo->prepare("UPDATE usuarios SET nome=:nome, email=:email WHERE id=:id");
+        $sql->bindValue(":nome", $u->getNome());
+        $sql->bindValue(":email", $u->getEmail());
+        $sql->bindValue(":id", $u->getId());
+        $sql->execute();
 
+        return true;
     }
 
     public function delete($id){

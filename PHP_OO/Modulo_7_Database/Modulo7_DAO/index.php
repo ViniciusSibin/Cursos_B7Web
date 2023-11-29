@@ -1,14 +1,12 @@
 <?php
 require 'config.php';
+require 'dao/UsuarioDAOMySQL.php';
 
-$usuarios = [];
-$sql_usuarios_query = $pdo->query("SELECT * FROM usuarios");
-if($sql_usuarios_query->rowCount() > 0){
-    $usuarios = $sql_usuarios_query->fetchAll(PDO::FETCH_ASSOC);
-}
+$usuarioDAO = new UsuarioDAOMySQL($pdo);
+$usuarios = $usuarioDAO->findAll();
 
 ?>
-<a href="adicionar_usuario.html">ADICIONAR USUARIO</a>
+<a href="adicionar_usuario.php">ADICIONAR USUARIO</a>
 
 <table border="1" width="100%">
     <tr>
@@ -20,13 +18,13 @@ if($sql_usuarios_query->rowCount() > 0){
     </tr>
     <?php foreach($usuarios as $usuario): ?>
         <tr>
-            <td><?= $usuario['id']; ?></td>
-            <td><?= $usuario['nome']; ?></td>
-            <td><?= $usuario['email']; ?></td>
-            <td><?= date("d/m/Y H:i:s", strtotime($usuario['data_cadastro'])); ?></td>
+            <td><?= $usuario->getId(); ?></td>
+            <td><?= $usuario->getNome(); ?></td>
+            <td><?= $usuario->getEmail(); ?></td>
+            <td><?= date("d/m/Y H:i:s", strtotime($usuario->getDataCadastro())); ?></td>
             <td>
-                <a href="editar_usuario.php?id=<?= $usuario['id'] ?>">[ editar ]</a>
-                <a href="excluir_usuario_action.php?id=<?= $usuario['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o usuário: <?=$usuario['nome']?>?')">[ excluir ]</a>
+                <a href="editar_usuario.php?id=<?= $usuario->getId(); ?>">[ editar ]</a>
+                <a href="excluir_usuario_action.php?id=<?= $usuario->getId(); ?>" onclick="return confirm('Tem certeza que deseja excluir o usuário: <?=$usuario->getNome();?>?')">[ excluir ]</a>
             </td>
         </tr>
     <?php endforeach; ?>

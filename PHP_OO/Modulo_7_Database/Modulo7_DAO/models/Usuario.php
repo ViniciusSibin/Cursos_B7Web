@@ -1,6 +1,6 @@
 <?php
 class Usuario {
-    private $id, $nome, $email;
+    private $id, $nome, $email, $dataCadastro;
 
     public function getId(){
         return $this->id;
@@ -24,6 +24,14 @@ class Usuario {
 
     public function setEmail($email){
         $this->email = strtolower(trim($email));
+    }
+
+    public function getDataCadastro(){
+        return $this->dataCadastro;
+    }
+
+    public function setDataCadastro($dataCadastro){
+        $this->dataCadastro = $dataCadastro;
     }
 }
 

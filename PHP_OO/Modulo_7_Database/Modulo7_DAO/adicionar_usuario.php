@@ -2,7 +2,7 @@
 <form action="adicionar_usuario_action.php" method="post">
     <label>
         Nome:<br/>
-        <input type="text" name="name">
+        <input type="text" name="nome">
     </label><br/><br/>
     <label>
         E-mail:<br/>

@@ -17,4 +17,12 @@ class HomeController extends Controller {
         print_r($args);
     }
 
+    public function fotos(){
+        $this->render('fotos');
+    }
+
+    public function foto($id){
+        echo "Mostrando foto com id " . $id['id'];
+    }
+
 }

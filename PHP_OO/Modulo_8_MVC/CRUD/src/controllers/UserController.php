@@ -6,6 +6,10 @@ use \core\Controller;
 class UserController extends Controller {
 
     public function new() {
-        echo "add";
+        $this->render('add');
+    }
+
+    public function newAction(){
+        echo "recebido";
     }
 }

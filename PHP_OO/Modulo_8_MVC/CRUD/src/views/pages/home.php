@@ -1,3 +1,7 @@
-<?php $render('header'); ?>
+<?php $render('header'); 
+$BASE = "http://localhost/Cursos_B7Web/PHP_OO/Modulo_8_MVC/CRUD/public";
+?>
 
-Opa, <?=$nome;?>
+<a href="<?=$BASE?>/new">Novo Usuário</a>
+
+<?php $render('footer'); ?>

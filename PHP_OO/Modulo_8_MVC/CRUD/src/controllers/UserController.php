@@ -2,35 +2,47 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\models\Usuario;
+use src\models\User;
 
 class UserController extends Controller {
 
     public function new() {
-        $this->render('add');
+        $this->render('user/new');
     }
 
-    public function newAction(){
-        $nome = filter_input(INPUT_POST, 'name');
+    public function newAction() {
+        $name = filter_input(INPUT_POST, 'name');
         $email = filter_input(INPUT_POST, 'email');
 
-        if($nome && $email){
-            $data = Usuario::select()->where('email', $email)->execute();
-
+        if($name && $email){
+            $data = User::select()->where('email', $email)->execute();
             if(count($data) === 0){
-                //inserir usuario
-                Usuario::insert([
-                    'nome' => $name,
-                    'email' => $email
-                ])->execute();
+                User::insert(['name' => $name, 'email' => $email, 'date' => "now()"])->execute();
 
-                //Redireciona para home
-                echo "inseriu no banco";
-                exit;
+                $this->render('home');
+                exit;   
             }
         }
 
-        //redireciona para tela de cadastro
-        echo "Deu erro";
+        $this->render('user/new');
+
+    }
+
+    public function edit($userId) {
+        $user = User::select()->where('id', $userId['id'])->execute();
+
+        if($user){
+            $this->render('user/edit', ['user' => $user]);
+            exit;
+        }
+
+        $this->render('home');
+
+
+        
+    }
+
+    public function del($userId) {
+        echo "deletou o usuário " . $userId['id'];
     }
 }

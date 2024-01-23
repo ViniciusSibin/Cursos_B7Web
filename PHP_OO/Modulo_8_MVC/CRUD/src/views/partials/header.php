@@ -7,5 +7,6 @@
 </head>
 <body>
     <header>
-        <h1>Gerenciamento de usuários</h1>
+        <h1>Cabeçalho do site</h1>
+        <hr>
     </header>

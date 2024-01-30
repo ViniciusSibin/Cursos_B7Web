@@ -29,7 +29,7 @@ class UserController extends Controller {
     }
 
     public function edit($userId) {
-        $user = User::select()->where('id', $userId['id'])->execute();
+        $user = User::select()->find($userId['id']);
 
         if($user){
             $this->render('user/edit', ['user' => $user]);
@@ -42,7 +42,23 @@ class UserController extends Controller {
         
     }
 
+    public function editAction($userId){
+        $name = filter_input(INPUT_POST, 'name');
+        $email = filter_input(INPUT_POST, 'email');
+
+        if($name && $email){
+            User::update(['name' => $name, 'email' => $email])->where('id', $userId['id'])->execute();
+
+            $this->redirect('/');
+            exit;  
+        }
+
+        $this->redirect('/user/' . $userId['id'] . '/edit');
+    }
+
     public function del($userId) {
-        echo "deletou o usuário " . $userId['id'];
+        User::delete()->where('id', $userId['id'])->execute();
+
+        $this->redirect('/');
     }
 }

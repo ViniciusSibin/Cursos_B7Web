@@ -15,6 +15,6 @@
     
 </form>
 <br><br>
-<a href="index.php"><button type="submit">Voltar</button></a>
+<a href="<?=$base ?>"><button type="submit">Voltar</button></a>
 
 <?php $render('footer'); ?>

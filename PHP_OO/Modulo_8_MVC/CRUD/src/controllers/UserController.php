@@ -19,12 +19,12 @@ class UserController extends Controller {
             if(count($data) === 0){
                 User::insert(['name' => $name, 'email' => $email, 'date' => "now()"])->execute();
 
-                $this->render('home');
+                $this->redirect('/');
                 exit;   
             }
         }
 
-        $this->render('user/new');
+        $this->redirect('/user/new');
 
     }
 

@@ -1,4 +1,35 @@
-
-
-
 Para testar as requisições de APIs, pode-se usar o site https://resttesttest.com/
+
+
+DEVNOTES: (Sistema de anotações simples)
+
+Para que outros sites possam acessar minha API eu tenho que fazer algumas liberações no header do meu site. 
+    header("Access-Control-Allow-Origin: *"); libera para qualquer dominio acessar minha API, se quiser dominios específicos, coloque-os no lugar do * separados por ,.
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); Libera todos os metodos que serão utilizados na API.
+    header("Content-Type: application/json"); informa o navegador qual tipo de API está sendo utilizado.
+
+
+EXERCICIO:
+O que o projeto precisa fazer? 
+- Listar as anotações
+- Listar UMA anotação
+- Inserir uma anotação nova
+- Atualizar uma anotação
+- Deletar uma anotação
+
+Qual a estrutura de dados ? 
+    - Local para armazenar as anotações
+        -- id
+        -- title
+        -- body
+
+Quais os endpoints ? 
+    - (GET) /api/notes
+    - (GET) /api/note/123
+    - (POST) /api/note (title, body)
+    - (PUT) /api/note/123 (title, body)
+    - (DELETE) /api/note/123
+
+
+
+

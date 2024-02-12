@@ -1,0 +1,4 @@
+
+
+
+Para testar as requisições de APIs, pode-se usar o site https://resttesttest.com/

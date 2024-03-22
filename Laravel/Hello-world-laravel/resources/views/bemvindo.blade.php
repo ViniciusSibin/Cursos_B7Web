@@ -7,6 +7,21 @@
     <title>Página de sair</title>
 </head>
 <body>
-    <h1>Bem vindo, {{$apelido_nome}}!</h1>
+    @foreach ($ingredientes as $ing)
+        <p>{{$ing}} - 
+            @component('components.botao') 
+                @slot('cor')
+                    blue
+                @endslot
+                Editar 
+            @endcomponent
+            @component('components.botao') 
+                @slot('cor')
+                    red
+                @endslot
+                Deletar 
+            @endcomponent
+        </p>
+    @endforeach
 </body>
 </html>

@@ -11,10 +11,14 @@ class SiteController extends Controller
         // Aqui eu poderia criar uma lógica ...
         // Verificar se um usuário existe ...
         // Buscar dados de um usuário, etc ...
-        $nome = 'Vinicius';
 
         $data = [
-            'apelido_nome' => $nome
+            'ingredientes' => [
+                'farinha',
+                'leite',
+                'ovos 2',
+                'margarina'
+            ]
         ];
 
         return view('bemvindo', $data);
@@ -25,12 +29,32 @@ class SiteController extends Controller
         return view('sair');
     }
 
-    public function users(Request $r){
+    public function exercise1(Request $r){
 
-        $data = [
-            'quantidade' => $r->qnt
+        $pessoas = [
+            [
+                'image' => 'https://i.pravatar.cc/150?img='.rand(0,50),
+                'name' => 'Alessandro',
+                'birth' => '29/01/1990',
+                'age' => '29',
+            ],
+            [
+                'image' => 'https://i.pravatar.cc/150?img='.rand(0,50),
+                'name' => 'Bonieky',
+                'birth' => '10/11/1933',
+                'age' => '90',
+            ],
+            [
+                'image' => 'https://i.pravatar.cc/150?img='.rand(0,50),
+                'name' => 'Alessandro',
+                'birth' => '01/01/2020',
+                'age' => '2'
+            ]
         ];
 
-        return view('usuarios', $data);
+        $dados['pessoas'] = $pessoas;
+
+        return view('exercicio1', $dados);
+        
     }
 }

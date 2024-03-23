@@ -9,7 +9,7 @@
 <body>
     <div class="container" style="display: flex;flex-wrap: wrap;justify-content: space-around;align-items: flex-start;">
         @foreach($pessoas as $pessoa)
-            @component('components.card')
+            <x-card>
                 @slot('imageSize')
                     300px
                 @endslot
@@ -24,7 +24,7 @@
                 @endslot
 
                 <img style="width: 100%;height:auto;border-radius: 5px" src="{{$pessoa['image']}}" alt="{{$pessoa['name']}}">
-            @endcomponent
+            </x-card>
         @endforeach
     </div>
 </body>

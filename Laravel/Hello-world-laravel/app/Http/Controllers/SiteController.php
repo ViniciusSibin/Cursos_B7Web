@@ -67,4 +67,8 @@ class SiteController extends Controller
 
         return view('exercicio2', $data);
     }
+
+    public function layout(){
+        return view('layout');
+    }
 }

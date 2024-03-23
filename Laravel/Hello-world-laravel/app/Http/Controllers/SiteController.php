@@ -29,7 +29,7 @@ class SiteController extends Controller
         return view('sair');
     }
 
-    public function exercise1(Request $r){
+    public function exercise1(){
 
         $pessoas = [
             [
@@ -56,5 +56,15 @@ class SiteController extends Controller
 
         return view('exercicio1', $dados);
         
+    }
+
+    public function exercise2(){
+        $numero = 1;
+
+        $url = 'https://i.pravatar.cc/150?img=';
+
+        $data['url'] = $url;
+
+        return view('exercicio2', $data);
     }
 }

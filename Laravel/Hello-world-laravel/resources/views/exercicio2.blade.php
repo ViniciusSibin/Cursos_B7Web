@@ -8,24 +8,23 @@
 </head>
 <body>
     <div class="container" style="display: flex;flex-wrap: wrap;justify-content: space-around;align-items: flex-start;">
-        @foreach($pessoas as $pessoa)
+        @for ($i = 0; $i < 50; $i++)
             @component('components.card')
                 @slot('imageSize')
-                    300px
+                    200px
                 @endslot
                 @slot('name')
-                    {{$pessoa['name']}}
+                    
                 @endslot
                 @slot('age')
-                    {{$pessoa['age']}} Anos
+                    
                 @endslot
                 @slot('birth')
-                    Nasceu em {{$pessoa['birth']}}
+                    
                 @endslot
-
-                <img style="width: 100%;height:auto;border-radius: 5px" src="{{$pessoa['image']}}" alt="{{$pessoa['name']}}">
-            @endcomponent
-        @endforeach
+                <img style="width: 100%;height:auto;border-radius: 5px" src="{{$url . $i}}" alt="{{$url . $i}}">
+            @endcomponent    
+        @endfor
     </div>
 </body>
 </html>
